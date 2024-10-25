@@ -1,0 +1,108 @@
+1. a) /rosout
+
+   b) the /rosout node is used for logging messages from various nodes in the system.
+    It serves as a centralized logging mechanism, where all log messages—such as warnings, errors, and informational messages—can be published 
+
+   c)/rosout
+     /rosout_agg
+
+   d)Subscriptions: 
+       * /rosout [unknown type]
+
+   e) Publications: 
+        * /rosout_agg [rosgraph_msgs/Log]
+
+
+   f)Services: 
+        * /rosout/get_loggers
+        * /rosout/set_logger_level
+
+
+    g) i obesrved that /rosout still running . it restarted automatically
+       termibnal shows-
+            killing /rosout
+            killed
+
+    h)rosnode ping	test connectivity to node
+	  rosnode list	list active nodes
+	  rosnode info	print information about node
+	  rosnode machine	list nodes running on a particular machine or list machines
+	  rosnode kill	kill a running node
+	  rosnode cleanup	purge registration information of unreachable nodes
+
+
+   i) screenshot -question1_rqt1.png
+
+   j)screenshot -question1_rqt2.png
+
+2.
+   a)screenshot -question2_terminal1.png
+
+   b) currently running 1 nodes (exclude main node) , /midlaj_pubnode  communicating to /rosout
+   from node 'Midlaj_pubnode' , 'greeting' topic published
+
+
+   c) screenshot - question2_terminal2.png 
+
+   d)from rqt graph i observed that node with same name connot run concurrently. 
+   when i run node with same name in new terminal it automaticaly close previous node so 
+   i have to change the code to give a unique name to node when ever i  run the code.(anonymous:True)
+   now when i run the code 3 time it running concurrently and rqt_graph showing three nodes 
+
+3) 
+   a) screen shot - question3_terminal1.png
+
+   b)question3_rqt1.png - now i can see that the node 'midlaj_node1_46317_1729837528688' is communicating directly with /rosout and to subscriber node /RAA24_subnode with topic /Greetings
+
+
+4.
+    a) /CET
+       /M1RAA_24_26
+       /Midlaj
+       /rosout
+
+    b) /hello_class
+       /hello_collage
+       /rosout
+       /rosout_agg
+       /welcome
+
+      
+    c)
+
+        Node [/rosout]
+        Publications: 
+        * /rosout_agg [rosgraph_msgs/Log]
+
+        Subscriptions: 
+        * /rosout [rosgraph_msgs/Log]
+
+        Services: 
+        * /rosout/get_loggers
+        * /rosout/set_logger_level
+
+
+        contacting node http://midlaj-HP-Pavilion-Gaming-Laptop-15-ec0xxx:42087/ ...
+        Pid: 59246
+        Connections:
+        * topic: /rosout
+            * to: /Midlaj (http://midlaj-HP-Pavilion-Gaming-Laptop-15-ec0xxx:42855/)
+            * direction: inbound (53608 - midlaj-HP-Pavilion-Gaming-Laptop-15-ec0xxx:39613) [15]
+            * transport: TCPROS
+        * topic: /rosout
+            * to: /M1RAA_24_26 (http://midlaj-HP-Pavilion-Gaming-Laptop-15-ec0xxx:45719/)
+            * direction: inbound (57786 - midlaj-HP-Pavilion-Gaming-Laptop-15-ec0xxx:34263) [16]
+            * transport: TCPROS
+        * topic: /rosout
+            * to: /CET (http://midlaj-HP-Pavilion-Gaming-Laptop-15-ec0xxx:38045/)
+            * direction: inbound (52300 - midlaj-HP-Pavilion-Gaming-Laptop-15-ec0xxx:40271) [17]
+            * transport: TCPROS
+
+    d) 
+        node2.py:14: UserWarning: 'M1RAA 2024' is not a legal ROS base name. This may cause problems with other ROS tools.
+            rospy.init_node('M1RAA 2024')
+        [FATAL] [1729841436.242055]: unable to register service [/M1RAA 2024/get_loggers] with master: ERROR: parameter [service] contains illegal chars
+        [FATAL] [1729841436.246895]: unable to register service [/M1RAA 2024/set_logger_level] with master: ERROR: parameter [service] contains illegal chars
+
+    e) screenshot- question4_rqt1.png
+     
